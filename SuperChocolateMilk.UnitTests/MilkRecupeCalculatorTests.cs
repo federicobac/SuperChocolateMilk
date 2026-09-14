@@ -14,9 +14,10 @@ public class MilkRecipeCalculatorTests
         int milkVolume = 1000;
         string richness = "REGULAR";
         
-        
+        //Act
         decimal result = MilkRecipeCalculator.CalculateChocolateSyrupRequired(milkVolume, richness);
         
+        //Assert
         Assert.Equal(100m, result);
     }
 
