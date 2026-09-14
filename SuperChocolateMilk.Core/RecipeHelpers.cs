@@ -11,4 +11,9 @@ public class RecipeHelpers
     {
         return liters * 1000;
     }
+
+    public static double CalculateMilkWeightGrams(int volumeMl)
+    {
+        return volumeMl * 1.03;
+    }
 }

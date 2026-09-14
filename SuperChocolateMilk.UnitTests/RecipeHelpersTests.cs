@@ -31,6 +31,17 @@ public class RecipeHelpersTests
         //Assert
         Assert.Equal(expected, result);
     }
-    
-    
+
+    [Fact]
+    public void CalculateMilkWeightGrams_OneLiter_Returns1030Grams()
+    {
+        //Arrange
+        int volumeMl = 1000;
+        
+        //Act
+        double result = RecipeHelpers.CalculateMilkWeightGrams(volumeMl);
+        
+        //Assert
+        Assert.Equal(1030.0, result, precision: 2);
+    }
 }
