@@ -17,4 +17,20 @@ public class RecipeHelpersTests
         //Assert
         Assert.Equal(1000, result);
     }
+
+    [Theory]
+    [InlineData(0, 0)]
+    [InlineData(1, 1000)]
+    [InlineData(2, 2000)]
+    [InlineData(5, 5000)]
+    public void LitersToMilliliters_VariousLiters_ReturnsConvertedMilliliters(int liters, int expected)
+    {
+        //Act
+        int result = RecipeHelpers.LitersToMilliliters(liters);
+
+        //Assert
+        Assert.Equal(expected, result);
+    }
+    
+    
 }

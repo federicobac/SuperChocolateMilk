@@ -6,4 +6,9 @@ public class RecipeHelpers
     {
         return VolumeA + VolumeB;
     }
+
+    public static int LitersToMilliliters(int liters)
+    {
+        return liters * 1000;
+    }
 }
