@@ -44,4 +44,19 @@ public class RecipeHelpersTests
         //Assert
         Assert.Equal(1030.0, result, precision: 2);
     }
+
+    [Theory]
+    [InlineData(1, true)]
+    [InlineData(100, true)]
+    [InlineData(0, false)]
+    [InlineData(-5, false)]
+    public void IsValidBatchSize_VariousVolumes_ReturnsExpected(int totalMl, bool expected)
+    {
+        //Act
+        bool result = RecipeHelpers.IsValidBatchSize(totalMl);
+        
+        //Assert
+        Assert.Equal(expected, result);
+    }
+    
 }

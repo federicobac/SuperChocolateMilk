@@ -16,4 +16,9 @@ public class RecipeHelpers
     {
         return volumeMl * 1.03;
     }
+
+    public static bool IsValidBatchSize(int totalMl)
+    {
+        return totalMl > 0;
+    }
 }
