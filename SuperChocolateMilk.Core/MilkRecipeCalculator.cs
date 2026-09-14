@@ -13,7 +13,7 @@ public class MilkRecipeCalculator
             "LIGHT" => baseSyrupMl * 0.75m,
             "REGULAR" => baseSyrupMl,
             "EXTRA" => baseSyrupMl * 1.5m,
-            "ULTRA CHOCO" => baseSyrupMl * 2.0m,
+            "ULTRA_CHOCO" => baseSyrupMl * 2.0m,
             _ => baseSyrupMl
         };
     }
