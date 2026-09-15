@@ -31,4 +31,9 @@ public class RecipeHelpers
     {
         return (int)Math.Ceiling(totalVolumeMl / 250.0);
     }
+    
+    public static double CalculateSugarGrams(int volumeMl)
+    {
+        return volumeMl / 240.0 * 24.0;
+    }
 }

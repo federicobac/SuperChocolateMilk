@@ -87,5 +87,30 @@ public class RecipeHelpersTests
         Assert.Equal(expected, result);
     }
 
+    //exercise 8 with [Fact]
+    [Fact]
+    public void CalculateSugarGrams_240Ml_Returns24Grams()
+    {
+        //Arrange
+        int volumeMl = 240;
+        
+        //Act
+        double result = RecipeHelpers.CalculateSugarGrams(volumeMl);
+        
+        //Assert
+        Assert.Equal(24.0, result, precision: 2);
+    }
+    
+    //exercise 8 with [Theory]
+    [Theory]
+    [InlineData(0,   0.0)]
+    [InlineData(240, 24.0)]
+    [InlineData(480, 48.0)]
+    [InlineData(120, 12.0)]
+    public void CalculateSugarGrams_VariousVolumes_ReturnsExpected(int volumeMl, double expected)
+    {
+        double result = RecipeHelpers.CalculateSugarGrams(volumeMl);
+        Assert.Equal(expected, result, precision: 2);
+    }
 
 }
