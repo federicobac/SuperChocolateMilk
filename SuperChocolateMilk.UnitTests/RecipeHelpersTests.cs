@@ -113,4 +113,24 @@ public class RecipeHelpersTests
         Assert.Equal(expected, result, precision: 2);
     }
 
+    [Theory]
+    [InlineData(-100, false)]   // negative
+    [InlineData(-1,   false)]   // just negative
+    [InlineData(0,    false)]   // ⚠️ edge — 0 % 500 == 0, but guard returns false
+    [InlineData(1,    false)]   // positive, not multiple
+    [InlineData(499,  false)]   // just below first multiple
+    [InlineData(500,  true)]    // first multiple
+    [InlineData(501,  false)]   // just above first multiple
+    [InlineData(1000, true)]    // second multiple
+    [InlineData(1500, true)]    // third multiple
+    public void NeedsMaintenance_VariousBatchCounts_ReturnsExpected(
+        int totalBatchesRun, bool expected)
+    {
+        //Act
+        bool result = RecipeHelpers.NeedsMaintenance(totalBatchesRun);
+
+        //Assert
+        Assert.Equal(expected, result);
+    }
+    
 }

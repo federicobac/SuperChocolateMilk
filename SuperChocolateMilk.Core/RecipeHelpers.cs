@@ -36,4 +36,12 @@ public class RecipeHelpers
     {
         return volumeMl / 240.0 * 24.0;
     }
+
+    public static bool NeedsMaintenance(int totalBatchesRun)
+    {
+        if (totalBatchesRun <= 0)
+            return false;
+
+        return totalBatchesRun % 500 == 0;
+    }
 }
