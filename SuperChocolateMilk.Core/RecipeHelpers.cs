@@ -21,4 +21,9 @@ public class RecipeHelpers
     {
         return totalMl > 0;
     }
+
+    public static string FormatTankLabel(int tankId, string contents)
+    {
+        return $"Tank-{tankId}: {contents}";
+    }
 }

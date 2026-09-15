@@ -10,10 +10,10 @@ public class RecipeHelpersTests
         //Arrange
         int volumeA = 250;
         int volumeB = 750;
-        
+
         //Act
         int result = RecipeHelpers.CombineVolumes(volumeA, volumeB);
-        
+
         //Assert
         Assert.Equal(1000, result);
     }
@@ -37,10 +37,10 @@ public class RecipeHelpersTests
     {
         //Arrange
         int volumeMl = 1000;
-        
+
         //Act
         double result = RecipeHelpers.CalculateMilkWeightGrams(volumeMl);
-        
+
         //Assert
         Assert.Equal(1030.0, result, precision: 2);
     }
@@ -54,9 +54,22 @@ public class RecipeHelpersTests
     {
         //Act
         bool result = RecipeHelpers.IsValidBatchSize(totalMl);
-        
+
         //Assert
         Assert.Equal(expected, result);
     }
-    
+
+    [Theory]
+    [InlineData(1, "Milk", "Tank-1: Milk")]
+    [InlineData(42, "Chocolate", "Tank-42: Chocolate")]
+    [InlineData(7, "Syrup", "Tank-7: Syrup")]
+    [InlineData(8, "", "Tank-8: ")]
+    public void FormatTankLabel_VariousInputs_ReturnsFormattedLabel(
+        int tankId, string label, string expected)
+    {
+        string result = RecipeHelpers.FormatTankLabel(tankId, label);
+        
+        Assert.Equal(expected, result);
+    }
+
 }
