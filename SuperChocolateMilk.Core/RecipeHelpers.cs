@@ -26,4 +26,9 @@ public class RecipeHelpers
     {
         return $"Tank-{tankId}: {contents}";
     }
+
+    public static int CalculateRequiredBottles(int totalVolumeMl)
+    {
+        return (int)Math.Ceiling(totalVolumeMl / 250.0);
+    }
 }

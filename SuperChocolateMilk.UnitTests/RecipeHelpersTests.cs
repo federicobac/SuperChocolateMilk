@@ -72,4 +72,20 @@ public class RecipeHelpersTests
         Assert.Equal(expected, result);
     }
 
+    [Theory]
+    [InlineData(0, 0)] // zero
+    [InlineData(1, 1)] // just above zero
+    [InlineData(250, 1)] // exact multiple
+    [InlineData(251, 2)] // just over — catches Ceiling vs truncation bugs
+    [InlineData(500, 2)] // exact multiple
+    [InlineData(501, 3)] // just over
+    [InlineData(750, 3)] // exact
+    public void CalculateRequiredBottles_VariousInputs_ReturnsCeiling(
+        int totalVolumeMl, int expected)
+    {
+        int result = RecipeHelpers.CalculateRequiredBottles(totalVolumeMl);
+        Assert.Equal(expected, result);
+    }
+
+
 }
